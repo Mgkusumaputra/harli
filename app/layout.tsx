@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
       <html lang="en">
-          <body className="bg-[#ADE792] flex justify-center items-center py-4">{children}</body>
+          <body className="bg-green-200">{children}</body>
       </html>
   );
 }

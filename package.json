@@ -30,5 +30,13 @@
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "cz-emoji-conventional": "^1.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-emoji-conventional"
+    }
   }
 }
