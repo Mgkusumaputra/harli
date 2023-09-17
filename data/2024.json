@@ -1,0 +1,19 @@
+[
+    {"date": "2024-01-01", "name": "Tahun Baru 2024", "include_cuti": false},
+    {"date": "2024-02-08", "name": "Isra Mikraj Nabi Muhammad SAW", "include_cuti": false},
+    {"date": "2024-02-10", "name": "Tahun Baru Imlek 2575 Kongzili", "include_cuti": true},
+    {"date": "2024-03-11", "name": "Hari Suci Nyepi Tahun Baru Saka 1946", "include_cuti": true},
+    {"date": "2024-03-29", "name": "Wafat Isa Al Masih", "include_cuti": false},
+    {"date": "2024-03-31", "name": "Hari Paskah", "include_cuti": false},
+    {"date": "2024-04-10", "name": "Hari Raya Idul Fitri 1445 Hijriah", "include_cuti": true},
+    {"date": "2024-04-11", "name": "Hari Raya Idul Fitri 1445 Hijriah", "include_cuti": true},
+    {"date": "2024-05-01", "name": "Hari Buruh Internasional", "include_cuti": false},
+    {"date": "2024-05-09", "name": "Kenaikan Isa Al Masih", "include_cuti": true},
+    {"date": "2024-05-23", "name": "Hari Raya Waisak 2568 BE", "include_cuti": true},
+    {"date": "2024-06-01", "name": "Hari Lahir Pancasila", "include_cuti": false},
+    {"date": "2024-06-17", "name": "Hari Raya Iduladha 1445 Hijriah", "include_cuti": true},
+    {"date": "2024-07-07", "name": "Tahun Baru Islam 1446 Hijriah", "include_cuti": false},
+    {"date": "2024-08-17", "name": "Hari Kemerdekaan Republik Indonesia", "include_cuti": false},
+    {"date": "2024-09-16", "name": "Maulid Nabi Muhammad SAW", "include_cuti": false},
+    {"date": "2024-12-25", "name": "Hari Raya Natal", "include_cuti": true}
+]
