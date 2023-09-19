@@ -12,12 +12,12 @@ import { BASE_URL } from "@/utils/env";
 
 export default function page() {
   return (
-    <div className="h-screen max-w-2xl flex flex-col gap-6 items-center mx-auto py-4">
+    <div className="max-w-5xl flex flex-col gap-6 items-center mx-auto py-4 px-5">
       <div className="flex flex-col gap-4 items-center">
         <h1 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
           API Documentation
         </h1>
-        <div className="flex flex-col gap-2 text-base text-center leading-7 text-foreground">
+        <div className="flex flex-col gap-2 text-sm md:text-base text-center text-foreground">
           <p>Halo para pengoding 🎉</p>
           <p>
             Yuk, kenalan sama API Tanggal Merah dari Harli! Buat kamu yang
@@ -31,7 +31,7 @@ export default function page() {
           </p>
         </div>
       </div>
-      <div className="flex flex-col gap-5 items-center w-full">
+      <div className="flex flex-col gap-5 items-center mb-4 w-full">
         <EndpointCard
           title={"Seluruh Hari Libur"}
           method={"GET"}
