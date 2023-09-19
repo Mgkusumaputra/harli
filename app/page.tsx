@@ -15,7 +15,7 @@ export default function Home() {
                         @raihanizar
                     </Link>{" "}
                     / Cek Dokumentasi API{" "}
-                    <Link className="font-bold hover:underline" href={"/docs/api"}>
+                    <Link className="font-bold hover:underline" href={"/api-docs"}>
                         Disini
                     </Link>
                 </p>
