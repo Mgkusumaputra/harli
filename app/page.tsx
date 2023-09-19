@@ -4,7 +4,6 @@ import Link from "next/link";
 
 export default function Home() {
     return (
-        <>
             <div className="h-screen flex flex-col items-center justify-between py-4">
                 <p className="text-sm font-bold leading-7 [&:not(:first-child)]:mt-6 text-foreground">
                     Hari ini: <span className="font-normal">{dateToday}</span>
@@ -21,7 +20,6 @@ export default function Home() {
                     </Link>
                 </p>
             </div>
-        </>
     );
 }
 
