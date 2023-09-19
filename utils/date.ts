@@ -4,7 +4,7 @@ export const dateOptions = {
   year: "numeric",
   month: "long",
   day: "numeric",
-};
+} as const;
 
 const todayIDString = todayDate.toLocaleDateString("id-ID", dateOptions);
 
