@@ -1,12 +1,6 @@
 import { dateOptions, todayDate } from "@/utils/date";
 import { BASE_URL } from "@/utils/env";
 
-type Holiday = {
-  HOLIDAY_NAME: string;
-  HOLIDAY_DATE: string;
-  DAYS_TO_HOLIDAY: number;
-};
-
 async function getTanggalMerah() {
   try {
     const res = await fetch(`${BASE_URL}/api/nearest`);
@@ -64,15 +58,15 @@ function holidayAlert(holidayDateString: any) {
 export async function ContentTanggal() {
   const holiday = await getTanggalMerah();
   return (
-    <div className="flex flex-col justify-between gap-3 items-center font-bold text-foreground">
-      <h1 className="text-md">Kapan Tanggal Merah Terdekat?</h1>
+    <div className="flex flex-col justify-between gap-3 items-center text-center font-bold text-foreground">
+      <h1 className="text-md md:text-xl">Kapan Tanggal Merah Terdekat?</h1>
       <div className="flex flex-col items-center text-primary">
-        <p className="text-4xl">{holiday.HOLIDAY_NAME}</p>
-        <p className="text-2xl">{holiday.HOLIDAY_DATE}</p>
+        <p className="text-3xl md:text-4xl">{holiday.HOLIDAY_DATE}</p>
+        <p className="text-xl md:text-2xl">{holiday.HOLIDAY_NAME}</p>
       </div>
-      <p className="text-md">{holidayDateCountdown(holiday.DAYS_TO_HOLIDAY)}</p>
-      <div className="bg-primary/60 text-primary-foreground mt-6 inline-flex items-center rounded-md border px-3 py-1 text-sm font-semibold">
-        {holidayAlert(holiday.HOLIDAY_DATE)}
+      <p className="text-md md:text-xl">{holidayDateCountdown(holiday.DAYS_TO_HOLIDAY)}</p>
+      <div className="bg-primary/60 text-primary-foreground mt-6 items-center rounded-md px-3 py-1">
+        <p className="text-xs md:text-sm font-semibold">{holidayAlert(holiday.HOLIDAY_DATE)}</p>
       </div>
     </div>
   );
