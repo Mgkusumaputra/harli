@@ -1,5 +1,4 @@
 import { dateOptions, todayDate } from "@/utils/date";
-import { BASE_URL } from "@/utils/env";
 
 interface Holiday {
   HOLIDAY_NAME: string;
@@ -9,16 +8,17 @@ interface Holiday {
 
 async function getTanggalMerah() {
   try {
-    const res = await fetch(`${BASE_URL}/api/nearest`, {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-      },
-      cache: "no-store",
+    const currentMonth = new Date().getMonth() + 1;
+    const data = await import(`@/data/${new Date().getFullYear()}.json`).then(
+      (data) => data.default
+    );
+    const res = data.filter((item: { date: string | number | Date }) => {
+      if (new Date(item.date).getMonth() + 1 === currentMonth) {
+        return item;
+      }
     });
 
-    let response = await res.json();
-    response = response[0];
+    const response = res[0];
 
     let holidayDateString = response.date;
 
@@ -43,7 +43,7 @@ async function getTanggalMerah() {
     return nearestHoliday;
   } catch (error) {
     console.log(`API: ${error}`);
-    return undefined
+    return undefined;
   }
 }
 
@@ -72,7 +72,7 @@ function holidayAlert(holidayDateString: any) {
 export async function ContentTanggal() {
   const holiday = await getTanggalMerah();
 
-  if (!holiday) return <h1 className="text-md md:text-xl">API Error</h1>
+  if (!holiday) return <h1 className="text-md md:text-xl">API Error</h1>;
 
   return (
     // <h1>Hi! {percoba}</h1>

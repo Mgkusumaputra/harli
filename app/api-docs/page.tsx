@@ -8,7 +8,7 @@ import {
   codeString4,
   codeString5,
 } from "@/constant/responseExample";
-import { BASE_URL } from "@/utils/env";
+import { SITE_URL } from "@/utils/env";
 
 export default function page() {
   return (
@@ -27,7 +27,7 @@ export default function page() {
         </div>
         <div className="bg-primary text-primary-foreground rounded-md py-2 px-4 w-full">
           <p className="font-semibold">
-            API Base URL: <span className="font-normal">{BASE_URL}</span>
+            API Base URL: <span className="font-normal">{SITE_URL}</span>
           </p>
         </div>
       </div>
