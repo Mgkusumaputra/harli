@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CodeBlock, paraisoDark } from "react-code-blocks";
-import { BASE_URL } from "@/utils/env";
+import { SITE_URL } from "@/utils/env";
 
 interface EndpointCardProps {
     title: string;
@@ -17,14 +17,14 @@ export default function EndpointCard({ title, method, endpoint, reqExample, resp
       <p className="text-base leading-7 font-semibold">{title}</p>
       <div className="flex gap-2">
         <Badge>{method}</Badge>
-        <p className="font-semibold">{BASE_URL}/{endpoint}</p>
+        <p className="font-semibold">{SITE_URL}/{endpoint}</p>
       </div>
       <p className="text-base leading-7">Contoh Request:</p>
       <div className="bg-primary text-primary-foreground rounded-md py-2 px-4 w-full">
         <p className="font-normal">
           GET /{reqExample} HTTP/1.1 <br /> Content-Type: application/json
           <br />
-          Host: {BASE_URL}
+          Host: {SITE_URL}
         </p>
       </div>
       <Accordion type="single" collapsible className="w-full">
