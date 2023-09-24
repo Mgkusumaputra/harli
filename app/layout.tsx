@@ -1,5 +1,14 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+const UmamiScript = dynamic(
+  () =>
+    import("@/components/umamiScript").then((m) => ({
+      default: m.UmamiScript,
+    })),
+  { ssr: false }
+);
 
 export const metadata: Metadata = {
   title: "Harli - Tracker Hari Libur Indonesia",
@@ -30,7 +39,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-green-200">{children}</body>
+      <body className="bg-green-200">
+        {children}
+        <UmamiScript />
+      </body>
     </html>
   );
 }
