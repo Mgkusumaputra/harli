@@ -1,6 +1,5 @@
 import { dateOptions, todayDate } from "@/utils/date";
 import { BASE_URL } from "@/utils/env";
-import { type } from "os";
 
 interface Holiday {
   HOLIDAY_NAME: string;
@@ -8,13 +7,20 @@ interface Holiday {
   DAYS_TO_HOLIDAY: number;
 }
 
-async function getTanggalMerah(): Promise<Holiday> {
+async function getTanggalMerah() {
   try {
-    const res = await fetch(`${BASE_URL}/api/nearest`);
-    const data = await res.json();
-    const getObject = data[0];
+    const res = await fetch(`${BASE_URL}/api/nearest`, {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+      },
+      cache: "no-store",
+    });
 
-    let holidayDateString = getObject.date; // get Holiday Date
+    let response = await res.json();
+    response = response[0];
+
+    let holidayDateString = response.date;
 
     const holidayDate = new Date(holidayDateString);
     const holidayIDString: string = holidayDate.toLocaleDateString(
@@ -22,7 +28,7 @@ async function getTanggalMerah(): Promise<Holiday> {
       dateOptions
     );
 
-    let holidayName: string = getObject.name;
+    let holidayName: string = response.name;
     let nearestTimeToHoliday = holidayDate.valueOf() - todayDate.valueOf();
 
     const daysToHoliday = Math.ceil(
@@ -36,7 +42,8 @@ async function getTanggalMerah(): Promise<Holiday> {
     };
     return nearestHoliday;
   } catch (error) {
-    throw new Error(`Error: ${error}`);
+    console.log(`API: ${error}`);
+    return undefined
   }
 }
 
@@ -64,16 +71,32 @@ function holidayAlert(holidayDateString: any) {
 
 export async function ContentTanggal() {
   const holiday = await getTanggalMerah();
+
+  if (!holiday) return <h1 className="text-md md:text-xl">API Error</h1>
+
   return (
+    // <h1>Hi! {percoba}</h1>
     <div className="flex flex-col justify-between gap-3 items-center text-center font-bold text-foreground">
       <h1 className="text-md md:text-xl">Kapan Tanggal Merah Terdekat?</h1>
       <div className="flex flex-col items-center text-primary">
-        <p className="text-3xl md:text-4xl">{holiday.HOLIDAY_DATE}</p>
-        <p className="text-xl md:text-2xl">{holiday.HOLIDAY_NAME}</p>
+        <p className="text-3xl md:text-4xl">
+          {holiday.HOLIDAY_DATE}
+          {/* {holiday?.HOLIDAY_DATE ?? "Loading.."} */}
+        </p>
+        <p className="text-xl md:text-2xl">
+          {holiday.HOLIDAY_NAME}
+          {/* {holiday?.HOLIDAY_NAME ?? "Loading.."} */}
+        </p>
       </div>
-      <p className="text-md md:text-xl">{holidayDateCountdown(holiday.DAYS_TO_HOLIDAY)}</p>
+      <p className="text-md md:text-xl">
+        {holidayDateCountdown(holiday.DAYS_TO_HOLIDAY)}
+        {/* {holiday?.DAYS_TO_HOLIDAY ? holidayDateCountdown(holiday.DAYS_TO_HOLIDAY) : "Loading.."} */}
+      </p>
       <div className="bg-primary/60 text-primary-foreground mt-6 items-center rounded-md px-3 py-1">
-        <p className="text-xs md:text-sm font-semibold">{holidayAlert(holiday.HOLIDAY_DATE)}</p>
+        <p className="text-xs md:text-sm font-semibold">
+          {holidayAlert(holiday.HOLIDAY_DATE)}
+          {/* {holiday?.HOLIDAY_DATE ? holidayAlert(holiday.HOLIDAY_DATE) : "Loading.."} */}
+        </p>
       </div>
     </div>
   );

@@ -1,5 +1,8 @@
-const siteURL = process.env.NEXT_PUBLIC_SITE_URL
-const baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : siteURL
+const siteURL = process.env.NEXT_PUBLIC_SITE_URL;
 
 export const SITE_URL = siteURL;
-export const BASE_URL = baseURL
+export const BASE_URL =
+  process.env.NODE_ENV === "development" ||
+  process.env.NODE_ENV === "production"
+    ? "http://[::1]:3000"
+    : siteURL;
