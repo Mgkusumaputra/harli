@@ -8,15 +8,22 @@ interface Holiday {
 
 async function getTanggalMerah() {
   try {
-    const currentMonth = new Date().getMonth() + 1;
+    const currentDate = new Date();
+
     const data = await import(`@/data/${new Date().getFullYear()}.json`).then(
       (data) => data.default
     );
     const res = data.filter((item: { date: string | number | Date }) => {
-      if (new Date(item.date).getMonth() + 1 === currentMonth) {
-        return item;
-      }
+      const itemDate = new Date(item.date);
+      return itemDate >= currentDate;
     });
+
+    data.sort(
+      (
+        a: { date: string | number | Date },
+        b: { date: string | number | Date }
+      ) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    );
 
     const response = res[0];
 
@@ -75,27 +82,22 @@ export async function ContentTanggal() {
   if (!holiday) return <h1 className="text-md md:text-xl">API Error</h1>;
 
   return (
-    // <h1>Hi! {percoba}</h1>
     <div className="flex flex-col justify-between gap-3 items-center text-center font-bold text-foreground">
       <h1 className="text-md md:text-xl">Kapan Tanggal Merah Terdekat?</h1>
       <div className="flex flex-col items-center text-primary">
         <p className="text-3xl md:text-4xl">
           {holiday.HOLIDAY_DATE}
-          {/* {holiday?.HOLIDAY_DATE ?? "Loading.."} */}
         </p>
         <p className="text-xl md:text-2xl">
           {holiday.HOLIDAY_NAME}
-          {/* {holiday?.HOLIDAY_NAME ?? "Loading.."} */}
         </p>
       </div>
       <p className="text-md md:text-xl">
         {holidayDateCountdown(holiday.DAYS_TO_HOLIDAY)}
-        {/* {holiday?.DAYS_TO_HOLIDAY ? holidayDateCountdown(holiday.DAYS_TO_HOLIDAY) : "Loading.."} */}
       </p>
       <div className="bg-primary/60 text-primary-foreground mt-6 items-center rounded-md px-3 py-1">
         <p className="text-xs md:text-sm font-semibold">
           {holidayAlert(holiday.HOLIDAY_DATE)}
-          {/* {holiday?.HOLIDAY_DATE ? holidayAlert(holiday.HOLIDAY_DATE) : "Loading.."} */}
         </p>
       </div>
     </div>
