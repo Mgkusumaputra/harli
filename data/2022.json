@@ -1,0 +1,46 @@
+[
+    { "date": "2022-01-01", "name": "Tahun Baru 2022", "include_cuti": false },
+    { "date": "2022-02-01", "name": "Tahun Baru Imlek 2573 Kongzili", "include_cuti": false },
+    { "date": "2022-02-28", "name": "Isra Mikraj Nabi Muhammad SAW", "include_cuti": false },
+    { "date": "2022-03-03", "name": "Hari Suci Nyepi Tahun Baru Saka 1944", "include_cuti": false },
+    { "date": "2022-04-15", "name": "Wafat Isa Almasih", "include_cuti": false },
+    { "date": "2022-05-01", "name": "Hari Buruh Internasional", "include_cuti": false },
+    {
+        "date": "2022-05-02",
+        "name": "Hari Raya Idul Fitri 1444 Hijriyah",
+        "include_cuti": true
+    },
+    {
+        "date": "2022-05-03",
+        "name": "Hari Raya Idul Fitri 1444 Hijriyah",
+        "include_cuti": true
+    },
+    { "date": "2022-05-16", "name": "Hari Raya Waisak 2566 BE", "include_cuti": false },
+    { "date": "2022-05-26", "name": "Kenaikan Isa Almasih", "include_cuti": false },
+    { "date": "2022-06-01", "name": "Hari Lahir Pancasila", "include_cuti": false },
+    {
+        "date": "2022-07-23",
+        "name": "Hari Raya Idul Adha 1443 Hijriyah",
+        "include_cuti": false
+    },
+    {
+        "date": "2022-07-30",
+        "name": "Tahun Baru Islam 1444 Hijriyah",
+        "include_cuti": false
+    },
+    {
+        "date": "2022-08-17",
+        "name": "Hari Kemerdekaan Republik Indonesia",
+        "include_cuti": false
+    },
+    {
+        "date": "2022-10-8",
+        "name": "Maulid Nabi Muhammad SAW",
+        "include_cuti": false
+    },
+    {
+        "date": "2022-12-25",
+        "name": "Hari Raya Natal",
+        "include_cuti": false
+    }
+]
