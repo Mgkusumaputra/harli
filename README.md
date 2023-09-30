@@ -5,7 +5,7 @@
     <h1>Harli</h1>
     <p>Cari tahu kapan liburan selanjutnya tanpa repot dengan Harli</p>
     <p>
-    <a href="https://harli.mgkusumaputra.me"><strong>Website</strong></a> · <a href="https://harli.mgkusumaputra.me/api-docs"><strong>API Docs</strong></a> · <a href="https://github.com/mgkusumputra/harli/issues"><strong>Laporkan Bug</strong></a> · <a href="https://github.com/mgkusumputra/harli/issues"><strong>Request Fitur</strong></a>
+    <a href="https://harli.mgkusumaputra.me"><strong>Website</strong></a> · <a href="https://harli.mgkusumaputra.me/api-docs"><strong>API Docs</strong></a> · <a href="https://github.com/mgkusumputra/harli/issues"><strong>Laporkan Bug</strong></a> · <a href="https://mgkps.producter.co/portal/feedback/list"><strong>Request Fitur</strong></a>
   </p>
   <a href="https://github.com/mgkusumaputra/harli/stargazers">
     <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mgkusumaputra/harli?style=flat&labelColor=3D5656&color=68B984">
@@ -45,7 +45,7 @@ Harli adalah website praktis untuk mengetahui jadwal hari libur terdekat di Indo
 - Umami Analytics
 
 ## Setup
-Instal terlebih dahulu seluruh dependencies yang digunakan `npm install` (atau `npm i`).
+Instal terlebih dahulu seluruh dependencies yang digunakan `pnpm install` (atau `pnpm i`).
 
-Lalu mulai jalankan development server `npm run dev`
+Lalu mulai jalankan development server `pnpm run dev`
 Buka [http://localhost:3000](http://localhost:3000/) kemudian periksa hasilnya
